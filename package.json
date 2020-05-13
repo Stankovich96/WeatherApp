@@ -1,0 +1,19 @@
+{
+  "name": "weatherspae",
+  "version": "1.0.0",
+  "description": "Simple Weather Forecast Application",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sir-josh/"
+  },
+  "author": "Stanley and Joshua",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "dependencies": {}
+}

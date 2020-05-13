@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:300|Questrial&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    //This defines what font size would be used in different breakpoints
+    font-size: 10px;
+
+    @include respond(phone){
+        font-size: 6px;
+    }
+
+    @include respond(tab-port){
+        font-size: 8px;
+    }
+
+    @include respond(tab-land){
+        font-size: 9px;
+    }
+    
+    @include respond(big-desktop){
+        font-size: 12px;
+    }
+}
+
+body{
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #EFF0F3;
+    background: #0A0B0D;
+    padding: 30px 50px;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+
+    @include respond(phone){
+
+    font-family: "Lato", sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    line-height: 1.7;
+    color: #EFF0F3;
+    background: #0A0B0D;
+    padding: 15px 25px;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+
+    }
+
+}
+
+.main-card{
+    display: flex;
+    justify-content: space-between;
+
+    .logo-box{
+        animation: moveInFromLeft 1s ease-in-out;
+    }
+    
+    .logo{
+        height: 30px;
+        @include respond(phone){
+            height: 20px;  
+        }
+    }
+    
+    .search{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: moveInFromRight 1s ease-in-out;
+
+        &__input{
+            font-family: inherit;
+            font-size: inherit;
+            color: #EFF0F3;
+            padding: 5px 10px;
+            border: none;
+            background: inherit;
+            display: hidden;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+            margin-right: -30px;
+            
+
+            &:hover{
+                border-bottom: 1px solid #EFF0F3;
+                outline: none;
+                display: inline-block;
+                opacity: 1;
+            }
+
+            &:focus{
+                outline: none;
+            }
+        }
+        &__button{
+            border: none;
+            background: inherit;
+            cursor: pointer;
+            
+            &:focus{
+                outline: none;
+            }
+        }
+        
+        &__icon{
+            height: 25px;
+            width: 25px;
+            cursor: pointer;
+
+            &:focus{
+                transform: translateY(4px);
+            }
+        }
+    }
+}
+#cloud_anime{
+    animation: animateCloud 4s linear infinite;
+}
+.text-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    display: hidden;
+    animation: animateOpacity 0.5s ease .9s forwards;
+
+    .heading-primary{
+        font-size: 50px;
+        font-family: 'Questrial', sans-serif;
+        line-height: 35px;
+        letter-spacing: 0.02em;
+
+        @include respond(phone){
+            font-size: 30px;
+            letter-spacing: 0.05em;
+        }
+
+    }
+
+    .horizontal-rule{
+        margin-top: 60px;
+        margin-left: -10%;
+        width: 120%;
+        height: 5px;
+        background: #4d4d4d;
+
+        @include respond(phone){
+        margin-top: 40px;
+        margin-left: -10%;
+        width: 120%;
+        height: 5px;
+        background: #4d4d4d;
+        }
+
+        span{
+            display: inherit;
+            background: #EFF0F3;
+            height: 100%;
+            animation: animateRule 1.5s ease-in 1s;
+        }
+    }
+}
+
+.footer{
+    position: fixed;
+    bottom: 5%;
+
+    .date-stamp{
+        position: fixed;
+        bottom: 5%;
+        animation: moveInFromLeft 1s ease-in-out;
+    }
+
+    .city__location{
+            position: fixed;
+            bottom: 5%;
+            right: 15%;
+            animation: moveInFromRight 1s ease-in-out;
+        }
+        
+        .change-button{
+            position: fixed;
+            bottom: 5%;
+            right: 5%;
+            @include respond(phone){
+            position: fixed;
+            bottom: 10%;
+            right: 30%;
+            text-decoration: none;
+            }
+        .city__location--change-button,.city_link{
+            position: fixed;
+            bottom: 5%;
+            right: 5%;
+            text-decoration: none;
+            font-size: 12px;
+            padding: 7px 20px;
+            background: #EFF0F3;
+            color: #0a0b0d;
+            cursor: pointer;
+
+            animation: moveInFromRight 1s ease-in-out;
+            @include respond(phone){
+                position: fixed;
+                bottom: 10%;
+                right: 30%;
+                text-decoration: none;
+                }
+            
+            :hover{
+                background: #EFF0F3;
+                color: #0A0B0D;
+                font-weight: bold;
+            }
+         }
+         
+        }
+    }
+
+
+.popup{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .85);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;    
+     }
+
+     .popup__content{
+        height: 400px;
+        width:30%;
+        background:#fff;
+        box-shadow: 0 20px 40px rgba(0,0,0, .2);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #0A0B0D;
+        border-radius: 15px;
+        padding: 30px 50px 50px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.25);
+        transition: all .4s .2s;
+
+        @include respond(phone){
+            height: 400px;
+            width: 80%;
+        } 
+      }
+      .popup__header{
+        font-size: 30px;
+        font-weight: bold;
+
+        @include respond(phone){
+           font-size: 20px;
+    
+        } 
+      }
+      .popup__body
+        input{
+          display: block;
+          width: 100%;
+          padding: 10px 20px;
+          border: 1px solid #A3A3A3;
+          border-radius: 5px;
+          margin: 40px 0;
+          outline: none;
+        }
+        .popup__body
+        input ::-webkit-input-placeholder{
+          font-size: 14px;
+          color: #A3A3A3;
+        }
+        .popup__body
+        input ::-webkit-input-placeholder :focus{
+          border-color: rgb(1, 37, 70);
+        }
+        .popup__footer{
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 60px;
+
+          @include respond(phone){
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+        } 
+        }
+        .popup__button{
+          padding: 10px 35px;
+          color: #EFF0F3;
+          background: #0A0B0D;
+          border: 1px solid #e8e8e8;
+          border-radius: 10px;
+          font-weight: bold;
+          cursor: pointer;
+          outline: none;
+          transition: all .2s;
+        }
+        .popup:active{
+          background: lighten(#0A0B0D, 30%);
+          transform: scale(1.1);
+        }
+        .popup:target{
+          opacity: 1;
+          visibility: visible;
+        }
+        .popup:target .popup__content{
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        .popup__close:link, .popup:visited{
+          color: inherit;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 25px;
+          text-decoration: none;
+          display: inline-block;
+          transition: all .2s;
+          line-height: 1;
+        }
+        .popup__close .popup:link, .popup:hover{
+          color: #fff;
+          background: #4d4d4d;
+          padding: 2px 6px;
+        }
+
+
+@keyframes moveInFromLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInFromRight{
+    0%{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    80%{
+        transform: translateX(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animateRule{
+    0%{
+        width: 0%;
+        opacity: 0;
+    }
+    100%{
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes animateOpacity{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+@keyframes animateCloud{
+    0%{
+        opacity: 0;
+        transform: translate(0);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(500px);
+    }
+    100%{
+        opacity: 0.5;
+        transform: translate(1300px);
+    }
+}
+#cloudy-weather-card,#sunny-weather-card,#rainy-weather-card{
+    display: none;
+  }
