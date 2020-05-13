@@ -272,7 +272,7 @@ input ::-webkit-input-placeholder :focus {
   font-size: 25px;
   text-decoration: none;
   display: inline-block;
-  transition: all .2s;
+  transition: all .1s;
   line-height: 1; }
 
 .popup__close .popup:link, .popup:hover {
