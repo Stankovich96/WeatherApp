@@ -52,6 +52,31 @@ if(!navigator.geolocation){
 
 }
 
+/**
+ *  Get the modal by id
+ */
+const popupModal = document.querySelector('#modal-popup');
+
+/**
+ *  close modal function
+ */
+function closeModal(){
+    popupModal.style.opacity = '0';
+    //popupModal.style.visibility = 'hidden';
+    popupModal.style.display = 'none';
+    popupModal.querySelector('.popup__content').style.opacity = '0';
+}
+
+
+/**
+ *  When the user clicks the close button of the modal, close it
+ */
+document.querySelector('.popup__close').addEventListener('click', ()=>{
+    closeModal();
+});
+
+
+
 //This function is triggered if the user decides to manual change the uhmm location from the modal
 function modalValue(){
 
@@ -73,9 +98,22 @@ function modalValue(){
     //clear the fields after the api is run
     document.querySelector('#modal-textCity').value = '';
     document.querySelector('#modal-textCountry').value = '';
-    
+
+    closeModal(); // Close the modal
 }
 
 
+/**
+ *  Setup and insert DateStamp
+ */
+function currentDateStamp(){
+    const date = new Date;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options2 = { hour12: true, hour: 'numeric', minute: 'numeric' };
+    const dateStamp = `${new Intl.DateTimeFormat('en-UK', options2).format(date)} - ${new Intl.DateTimeFormat('en-NG', options).format(date)}`;
+    // Insert the datestamp for every date-stamp element fields
+    document.querySelectorAll('.date-stamp, #weather___footer .date-stamp').forEach(element => element.innerHTML = dateStamp);
+}
 
+setInterval(currentDateStamp, 1000); // Run the currentDateStamp function in every 1 seconds
 
