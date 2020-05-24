@@ -52,10 +52,49 @@ if(!navigator.geolocation){
 
 }
 
+
+/**
+ *  Quick location search form
+ */
+document.querySelectorAll(".search").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log("ok");
+      popupModal.style.opacity = "1";
+      popupModal.style.visibility = "visible";
+      popupModal.querySelector(".popup__content").style.opacity = "1";
+      popupModal.querySelector(
+        ".popup__content"
+      ).style.transform = `translate(-50%, -50%) scale(1)`;
+      console.log("ok2");
+    });
+  });
+  
+
+
+
+
+
 /**
  *  Get the modal by id
  */
 const popupModal = document.querySelector('#modal-popup');
+
+/**
+ *  Open modal
+ */
+document.querySelectorAll("#change-button", ".city__link").forEach((button) => {
+    button.addEventListener("click", () => {
+      console.log("ok");
+      popupModal.style.opacity = "1";
+      popupModal.style.visibility = "visible";
+      popupModal.querySelector(".popup__content").style.opacity = "1";
+      popupModal.querySelector(
+        ".popup__content"
+      ).style.transform = `translate(-50%, -50%) scale(1)`;
+      console.log("ok2");
+    });
+  });
 
 /**
  *  close modal function
